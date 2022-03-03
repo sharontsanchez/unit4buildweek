@@ -3,21 +3,22 @@ const helmet = require('helmet')
 const cors = require('cors')
 
 
-const { restricted } = require('./middleware/restricted')
-const authRouter = require('./auth/auth-router')
-const plantsRouter = require("./plants/plants-router");
-const userRouter = require("./users/users-router");
+// const { restricted } = require('./middleware/restricted')
+// const authRouter = require('./auth/auth-router')
+// const plantsRouter = require("./plants/plants-router");
+// const userRouter = require("./users/users-router");
 const Users = require("./users/users-model");
 
 
-const server = express()
-server.use(express.json())
-server.use(helmet())
-server.use(cors())
+const server = express();
 
-server.use('/api/users', authRouter)
-server.use("/api/user", restricted, userRouter);
-server.use("/api/plants", restricted, plantsRouter);
+server.use(express.json());
+server.use(helmet());
+server.use(cors());
+
+// server.use('/api/users', authRouter);
+// server.use("/api/user", restricted, userRouter);
+// server.use("/api/plants", restricted, plantsRouter);
 
 
 
